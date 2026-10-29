@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050b19">
+<meta name="description" content="IT Vault — practical technology tutorials, advice, and troubleshooting.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="IT Vault">
+<title>IT Vault — Learn • Solve • Grow</title>
+<style>
+:root{--bg:#050b19;--panel:#0c1830;--panel2:#102344;--line:#18375e;--blue:#08c9ff;--purple:#8d4dff;--text:#f4f8ff;--muted:#a7bdd8;--cyan:#2ce8ee}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#102e66 0,transparent 38%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer}.app{max-width:1080px;margin:auto;min-height:100vh;padding:18px 18px 92px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}.brand{font-size:25px;font-weight:900;letter-spacing:-1px}.brand span{color:var(--blue);text-shadow:0 0 20px #008cff88}.tag{font-size:9px;letter-spacing:3px;color:var(--muted);margin-top:2px}.avatar{border:1px solid #2665a1;border-radius:50%;width:40px;height:40px;display:grid;place-items:center;background:linear-gradient(135deg,#087dff,#853dff);font-weight:800}
+.hero{border:1px solid #174b82;border-radius:24px;padding:24px;background:linear-gradient(120deg,#0d2447,#081329 68%,#21134a);position:relative;overflow:hidden;box-shadow:0 15px 50px #0005}.hero:after{content:"✦";position:absolute;right:7%;top:4px;font-size:135px;color:#00c8ff1c;text-shadow:0 0 40px #006dff}.eyebrow{color:var(--cyan);font-size:11px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(28px,5vw,43px);line-height:1.05;margin:12px 0;max-width:600px;letter-spacing:-1.3px}.hero h1 em{font-style:normal;color:var(--blue)}.hero p{color:#b7cbe5;max-width:540px;line-height:1.6;margin:0 0 18px}.primary{border:0;border-radius:13px;padding:13px 18px;color:#fff;font-weight:800;background:linear-gradient(100deg,#04c9f8,#286dff,#8e3dff);box-shadow:0 7px 24px #007aff33}
+.search{display:flex;align-items:center;gap:10px;background:#0c1a32;border:1px solid #21446d;border-radius:16px;padding:12px 15px;margin:18px 0}.search span{font-size:20px;color:var(--blue)}.search input{width:100%;background:transparent;border:0;outline:0;color:white}.search input::placeholder{color:#7892b4}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:25px 0 12px}.section-head h2{font-size:19px;margin:0}.section-head small{color:var(--blue)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tile{border:1px solid var(--line);border-radius:18px;padding:17px;background:linear-gradient(145deg,#10274b,#0a1428);min-height:142px;transition:.2s}.tile:hover,.guide:hover{transform:translateY(-2px);border-color:#168fdb}.tile .icon{font-size:25px;display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:#063d71;color:var(--blue);box-shadow:inset 0 0 18px #00baff22;margin-bottom:12px}.tile:nth-child(2) .icon{background:#301a63;color:#c7a4ff}.tile:nth-child(3) .icon{background:#064747;color:#4af4e7}.tile:nth-child(4) .icon{background:#4c3016;color:#ffc36c}.tile h3{margin:0 0 5px;font-size:16px}.tile p{color:var(--muted);font-size:12px;line-height:1.45;margin:0}.quick{display:flex;gap:9px;overflow-x:auto;padding-bottom:4px}.chip{flex:0 0 auto;border:1px solid #21436c;border-radius:13px;background:#0b1930;color:#dceaff;padding:12px 14px;font-size:12px}.chip.active{border-color:var(--blue);color:var(--blue);background:#062c4a}
+.guides{display:grid;gap:10px}.guide{display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:17px;padding:13px;background:linear-gradient(110deg,#0e1e38,#091326);transition:.2s}.guide-icon{width:52px;height:52px;flex-shrink:0;border-radius:14px;background:linear-gradient(145deg,#0752a0,#082347);display:grid;place-items:center;font-size:24px;color:var(--blue)}.guide-copy{flex:1;min-width:0}.guide h3{font-size:14px;margin:0 0 5px}.guide p{font-size:12px;color:var(--muted);margin:0;line-height:1.4}.meta{font-size:10px;color:#7f9fc6;margin-top:7px}.arrow{color:#9acfff;font-size:23px}.view{display:none}.view.active{display:block}.page-title{font-size:28px;letter-spacing:-.8px;margin:10px 0 5px}.sub{color:var(--muted);line-height:1.5;margin:0 0 18px}.back{background:transparent;border:0;color:var(--blue);padding:7px 0;margin:0 0 8px}.detail{border:1px solid var(--line);border-radius:20px;background:#0b1930;padding:20px;line-height:1.65}.detail h3{margin-top:20px}.detail li{margin:9px 0;color:#c8d8ec}.note{border-left:3px solid var(--blue);background:#092745;padding:12px;border-radius:0 10px 10px 0;color:#cdeaff;font-size:13px}.save{border:1px solid #24629a;border-radius:10px;background:#0c2443;color:#aee8ff;padding:9px 12px}.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed #254363;border-radius:16px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#061022ed;backdrop-filter:blur(14px);border-top:1px solid #183354;display:flex;justify-content:center;z-index:4;padding:9px 8px calc(9px + env(safe-area-inset-bottom))}nav .nav-inner{width:min(700px,100%);display:flex;justify-content:space-around}nav button{background:transparent;border:0;color:#809bbd;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:55px}nav button b{font-size:20px;font-weight:500}nav button.active{color:var(--blue)}
+footer{text-align:center;color:#5f7d9f;font-size:11px;margin:28px 0 0}
+@media(min-width:700px){.app{padding:28px 28px 100px}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{padding:34px}.guides{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){.app{padding:13px 12px 90px}.hero{padding:18px}.hero h1{font-size:28px}.tile{padding:13px}.brand{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div style="display:flex;align-items:center;gap:11px"><img src="logo.png" alt="IT Vault logo" style="width:54px;height:54px;object-fit:cover;border-radius:13px;border:1px solid #087dff;box-shadow:0 0 20px #008cff44"><div><div class="brand">IT <span>VAULT</span></div><div class="tag">LEARN • SOLVE • GROW</div></div></div><div class="avatar">IT</div></header>
+
+<section id="home" class="view active">
+<div class="hero"><div class="eyebrow">YOUR PERSONAL TECH HUB</div><h1>Learn more.<br><em>Fix smarter.</em> Grow faster.</h1><p>Practical technology knowledge, trusted advice, and simple solutions to everyday tech problems.</p><button class="primary" onclick="showView('learn')">Explore tech guides&nbsp; →</button></div>
+<label class="search"><span>⌕</span><input id="searchHome" placeholder="Search a guide, topic or issue..." oninput="searchGuides(this.value)"></label>
+<div class="section-head"><h2>What do you need?</h2></div>
+<div class="grid">
+<button class="tile" onclick="showView('learn')"><div class="icon">▤</div><h3>Learn</h3><p>Tech guides, tutorials and tips.</p></button>
+<button class="tile" onclick="showView('advice')"><div class="icon">☏</div><h3>Get Advice</h3><p>Understand technology with simple explanations.</p></button>
+<button class="tile" onclick="showView('troubleshoot')"><div class="icon">⚒</div><h3>Troubleshoot</h3><p>Follow steps to solve common problems.</p></button>
+<button class="tile" onclick="showView('saved')"><div class="icon">☆</div><h3>Saved Guides</h3><p>Keep helpful answers close at hand.</p></button>
+</div>
+<div class="section-head"><h2>Quick access</h2><small>Choose a topic</small></div>
+<div class="quick"><button class="chip" onclick="filterTopic('Phones')">📱 Phones</button><button class="chip" onclick="filterTopic('Computers')">💻 Computers</button><button class="chip" onclick="filterTopic('Internet')">📶 Internet & Wi-Fi</button><button class="chip" onclick="filterTopic('Security')">🛡 Security</button></div>
+<div class="section-head"><h2>Popular guides</h2><small onclick="showView('learn')">View all →</small></div><div class="guides" id="homeGuides"></div>
+</section>
+
+<section id="learn" class="view"><button class="back" onclick="showView('home')">← Home</button><h1 class="page-title">Build your tech skills</h1><p class="sub">Step-by-step guides for everyday technology. Start with a topic below.</p><div class="quick" style="margin-bottom:16px"><button class="chip active" onclick="filterTopic('All',this)">All</button><button class="chip" onclick="filterTopic('Phones',this)">Phones</button><button class="chip" onclick="filterTopic('Computers',this)">Computers</button><button class="chip" onclick="filterTopic('Internet',this)">Internet</button><button class="chip" onclick="filterTopic('Security',this)">Security</button></div><div class="guides" id="learnGuides"></div></section>
+
+<section id="advice" class="view"><button class="back" onclick="showView('home')">← Home</button><h1 class="page-title">Tech advice, made simple</h1><p class="sub">Straightforward explanations to help you make informed decisions about your devices and digital life.</p><div class="guides" id="adviceGuides"></div><div class="detail" style="margin-top:16px"><h3>Have a question?</h3><p class="sub">Use the search box on Home to find a topic, or browse the guides above. For open-ended technology questions, select Vault AI in the bottom menu.</p><button class="primary" onclick="showView('home')">Find a guide</button></div></section>
+
+<section id="troubleshoot" class="view"><button class="back" onclick="showView('home')">← Home</button><h1 class="page-title">Solve problems fast</h1><p class="sub">Choose an issue to see safe first steps. If a step doesn't work, stop before trying anything that could erase your data.</p><label class="search"><span>⌕</span><input id="searchTrouble" placeholder="Search a problem..." oninput="renderTroubles(this.value)"></label><div class="guides" id="troubleGuides"></div></section>
+
+
+<section id="vaultai" class="view">
+<button class="back" onclick="showView('home')">← Home</button>
+<h1 class="page-title">Vault AI <span style="color:var(--blue)">✦</span></h1>
+<p class="sub">Ask technology questions in your own words. Vault AI can help with phones, computers, apps, internet and digital safety.</p>
+<div class="detail" style="padding:14px">
+  <div id="aiStatus" class="note" style="margin-bottom:12px">Ask a question to get started. Do not share passwords, verification codes or private financial information.</div>
+  <div id="aiMessages" aria-live="polite" style="display:grid;gap:12px;max-height:48vh;overflow:auto;padding:4px 0;margin-bottom:12px">
+    <div class="note"><strong>Vault AI:</strong> Hello! What technology problem can I help you solve today?</div>
+  </div>
+  <form id="aiForm" style="display:grid;gap:10px">
+    <label for="aiQuestion" style="font-size:13px;color:var(--muted)">Your question</label>
+    <textarea id="aiQuestion" rows="3" maxlength="2000" required placeholder="e.g. My Android phone is running slowly..." style="width:100%;resize:vertical;background:#071326;color:var(--text);border:1px solid #21446d;border-radius:12px;padding:13px;font:inherit"></textarea>
+    <button class="primary" id="aiSend" type="submit">Ask Vault AI →</button>
+  </form>
+  <p style="font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:0">AI answers can be wrong. Verify important advice before changing settings, deleting files or spending money.</p>
+</div>
+</section>
+
+<section id="saved" class="view"><button class="back" onclick="showView('home')">← Home</button><h1 class="page-title">Saved guides</h1><p class="sub">Your bookmarked IT Vault guides.</p><div class="guides" id="savedGuides"></div></section>
+<section id="detail" class="view"><button class="back" onclick="goBack()">← Back</button><div id="detailContent"></div></section>
+<footer>IT VAULT • LEARN • SOLVE • GROW</footer>
+</div>
+<nav><div class="nav-inner"><button class="active" data-view="home" onclick="showView('home',this)"><b>⌂</b>Home</button><button data-view="learn" onclick="showView('learn',this)"><b>▤</b>Learn</button><button data-view="advice" onclick="showView('advice',this)"><b>☏</b>Advice</button><button data-view="troubleshoot" onclick="showView('troubleshoot',this)"><b>⚒</b>Tools</button><button data-view="vaultai" onclick="showView('vaultai',this)"><b>✦</b>Vault AI</button><button data-view="saved" onclick="showView('saved',this)"><b>☆</b>Saved</button></div></nav>
+<script>
+const guides=[
+{id:'android',title:'How to make an Android phone run smoother',topic:'Phones',icon:'📱',time:'6 min',desc:'Improve performance without risky cleaner apps.',kind:'learn',steps:['Restart your phone if it has been running for a long time.','Check Settings → Storage and free space by removing files you recognise and no longer need.','Update Android and your apps using official system settings and the Play Store.','Review battery and app usage; uninstall apps you do not recognise or use.','If one app is slow, update it or clear its cache from that app’s settings. Avoid “Clear data” unless you understand what will be deleted.'],tip:'Back up important photos and files before making major changes.'},
+{id:'windows',title:'Windows basics for beginners',topic:'Computers',icon:'💻',time:'8 min',desc:'Learn useful settings, updates and everyday shortcuts.',kind:'learn',steps:['Open Settings from the Start menu.','Use Windows Update to check for official updates.','Use File Explorer to organise files into folders you can find again.','Use Ctrl + C to copy, Ctrl + V to paste and Ctrl + Z to undo many actions.','Download programs from their official websites or the Microsoft Store.'],tip:'Save your work before restarting or installing updates.'},
+{id:'wifi',title:'Wi-Fi connected but no internet',topic:'Internet',icon:'📶',time:'5 min',desc:'Check your connection before changing advanced settings.',kind:'trouble',steps:['Check whether other devices on the same Wi-Fi can access the internet.','Turn Wi-Fi off and on, then reconnect to the correct network.','Restart the router if you have permission; wait for it to reconnect fully.','Check whether your internet provider reports an outage or your data bundle has run out.','If only one device has the issue, restart that device and forget/rejoin the network only if you know the password.'],tip:'Never share your Wi-Fi password publicly.'},
+{id:'slowphone',title:'Phone is slow or keeps freezing',topic:'Phones',icon:'🐢',time:'5 min',desc:'Try simple steps before considering a reset.',kind:'trouble',steps:['Restart the phone and wait a minute after it starts.','Close apps that are actively using lots of resources.','Check free storage and remove only files you can safely delete.','Install available updates from official settings.','If the issue started after installing an app, update or uninstall that app.'],tip:'A factory reset erases local data. Back up first and use it only as a last resort.'},
+{id:'security',title:'Protect your accounts from scams',topic:'Security',icon:'🛡️',time:'7 min',desc:'Spot suspicious requests and keep account access secure.',kind:'advice',steps:['Never share one-time verification codes or passwords with callers or chat contacts.','Turn on two-step verification where available.','Use unique passwords for important accounts.','Avoid unknown links that promise prizes, urgent payments or account recovery.','If you entered a password on a suspicious page, change it through the official app or website.'],tip:'Real support teams should not need you to read out a one-time login code.'},
+{id:'apps',title:'Apps keep crashing or will not open',topic:'Phones',icon:'🧩',time:'4 min',desc:'Work through safe app fixes in order.',kind:'trouble',steps:['Restart your device.','Check for app updates in the official app store.','Check that your device has enough free storage.','On Android, you can try clearing the app cache in Settings. Menu names vary by phone.','If you reinstall an app, first make sure your account data is backed up or synced.'],tip:'Do not clear app data if you may lose important files or messages.'},
+{id:'battery',title:'Battery draining faster than usual',topic:'Phones',icon:'🔋',time:'5 min',desc:'Find the apps and settings using the most power.',kind:'trouble',steps:['Open Battery settings and review which apps use the most power.','Lower screen brightness or enable adaptive brightness.','Check for updates and restart your phone.','Limit background activity for apps you rarely use, if your phone offers that setting.','If the battery swells, becomes unusually hot, or the phone is damaged, stop using it and seek qualified repair help.'],tip:'Avoid unofficial battery repair apps that promise unrealistic results.'},
+{id:'downloads',title:'Download software safely',topic:'Computers',icon:'⬇️',time:'6 min',desc:'Reduce the chance of installing unwanted programs.',kind:'advice',steps:['Find the software maker’s official website or a trusted app store.','Check the exact app name and publisher before installing.','Avoid download buttons from pop-ups and sites that bundle extra software.','Read permission prompts before approving them.','Keep your operating system and security software updated.'],tip:'If a download page feels deceptive, leave it and search for the official publisher.'}
+
+,{id:'phone-storage',title:'Free up Android storage safely',topic:'Phones',icon:'🗂️',time:'5 min',desc:'Create space without deleting files you still need.',kind:'trouble',steps:['Open Settings and find Storage to see what is using space.','Review large videos, downloads and duplicate files before deleting anything.','Back up important photos and documents to a trusted location first.','Remove apps you recognise and no longer use.','Clear an app cache only when needed; avoid Clear data unless you understand what it removes.'],tip:'Do not install unknown “cleaner” apps or delete system folders.'}
+,{id:'hotspot',title:'Share mobile data with a hotspot',topic:'Internet',icon:'📡',time:'4 min',desc:'Connect another device using your phone’s mobile data.',kind:'learn',steps:['Turn on mobile data and check that your plan allows hotspot use.','Open Settings and search for Hotspot or Tethering.','Turn on Wi-Fi hotspot and review its network name and password.','On the other device, choose that Wi-Fi network and enter the password.','Turn the hotspot off when finished to save battery and data.'],tip:'Use a strong hotspot password and share it only with people you trust.'}
+,{id:'bluetooth',title:'Bluetooth device will not connect',topic:'Phones',icon:'🎧',time:'5 min',desc:'Try safe checks for earbuds, speakers and other accessories.',kind:'trouble',steps:['Charge the accessory and make sure it is in pairing mode.','Turn Bluetooth off and on on your phone.','If the accessory is connected to another nearby device, disconnect it there.','In Bluetooth settings, choose the accessory and select Forget only if you can pair it again.','Restart both devices and try pairing again using the accessory maker’s instructions.'],tip:'If an electronic accessory gets wet, power it off and let it dry fully; do not charge it while wet.'}
+,{id:'mobile-data',title:'Mobile data is on but the internet will not load',topic:'Internet',icon:'📶',time:'5 min',desc:'Check signal, data balance and connection settings.',kind:'trouble',steps:['Check that mobile data is enabled and airplane mode is off.','Move to a place with better signal and try opening a different website or app.','Check your data balance or bundle validity with your mobile provider.','Restart your phone. If you use two SIMs, confirm the correct SIM is selected for data.','If it still fails, contact your mobile provider before changing advanced network settings.'],tip:'Avoid changing APN settings unless your provider gives you the correct values.'}
+,{id:'phishing',title:'How to spot a phishing message',topic:'Security',icon:'🎣',time:'6 min',desc:'Recognise messages designed to steal accounts or money.',kind:'advice',steps:['Be cautious of urgent threats, unexpected prizes, or requests for money.','Check the full sender address or number; a familiar display name can be copied.','Do not tap unexpected links or open attachments you were not expecting.','Never share passwords, PINs or one-time verification codes.','Verify the request using a separate official app, website or known phone number.'],tip:'If you already entered a password, change it through the official service and enable two-step verification.'}
+,{id:'backup',title:'Back up important files and photos',topic:'Computers',icon:'☁️',time:'6 min',desc:'Keep a second copy before a phone reset or repair.',kind:'learn',steps:['List the photos, contacts, documents and messages you cannot afford to lose.','Use the backup option built into your phone or computer, or a reputable storage service.','For important files, consider a second copy on storage you control.','Check that the backup completed and that you can see the files from another session or device.','Keep account recovery details private and secure.'],tip:'A sync service is not always the same as a separate backup; check what happens if a file is deleted.'}
+,{id:'windows-screenshot',title:'Take a screenshot on Windows',topic:'Computers',icon:'📸',time:'3 min',desc:'Capture an error message or something you want to save.',kind:'learn',steps:['Press Windows + Shift + S to open the screen snipping tool on supported Windows versions.','Choose the area or window you want to capture.','Select the notification to edit or save the screenshot, or paste it into an app.','If the shortcut does not work, open Snipping Tool from the Start menu.','Before sharing a screenshot, hide passwords, personal details and private messages.'],tip:'Only share screenshots with people or services you trust.'}
+,{id:'data-saver',title:'Reduce mobile data usage',topic:'Internet',icon:'📉',time:'4 min',desc:'Find apps using data and avoid unexpected bundle costs.',kind:'advice',steps:['Open Settings and look for Data usage or Mobile network usage.','Review which apps use the most mobile data.','Enable Data Saver if your phone offers it.','Set video apps to a lower quality and download updates over Wi-Fi when practical.','Turn off background data only for apps where delayed updates are acceptable.'],tip:'Menu names vary by phone and Android version; check your data usage again after a few days.'}
+
+];
+let previousView='home',currentFilter='All';
+function showView(id,btn){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');if(id!=='detail')previousView=id;document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));if(id==='saved')renderSaved();window.scrollTo({top:0,behavior:'smooth'});}
+function goBack(){showView(previousView)}
+function card(g){return `<article class="guide" onclick="openGuide('${g.id}')"><div class="guide-icon">${g.icon}</div><div class="guide-copy"><h3>${g.title}</h3><p>${g.desc}</p><div class="meta">${g.topic} · ${g.time}</div></div><div class="arrow">›</div></article>`}
+function render(id,list){document.getElementById(id).innerHTML=list.length?list.map(card).join(''):'<div class="empty">No matching guides yet. Try another search.</div>'}
+function renderAll(){render('homeGuides',guides.slice(0,4));render('learnGuides',guides.filter(g=>g.kind==='learn'||g.kind==='advice'));render('adviceGuides',guides.filter(g=>g.kind==='advice'||g.kind==='learn'));renderTroubles();renderSaved()}
+function filterTopic(topic,btn){currentFilter=topic;document.querySelectorAll('#learn .chip').forEach(c=>c.classList.remove('active'));if(btn)btn.classList.add('active');const list=guides.filter(g=>(topic==='All'||g.topic===topic||(topic==='Internet'&&g.topic==='Internet'))&&(g.kind==='learn'||g.kind==='advice'));render('learnGuides',list);showView('learn')}
+function searchGuides(q){q=q.toLowerCase().trim();if(!q)return render('homeGuides',guides.slice(0,4));render('homeGuides',guides.filter(g=>(g.title+' '+g.desc+' '+g.topic).toLowerCase().includes(q)))}
+function renderTroubles(q=''){q=q.toLowerCase();render('troubleGuides',guides.filter(g=>g.kind==='trouble'&&(g.title+' '+g.desc+' '+g.topic).toLowerCase().includes(q)))}
+function getSaved(){try{return JSON.parse(localStorage.getItem('itvault_saved')||'[]')}catch(e){return []}}
+function renderSaved(){const ids=getSaved();render('savedGuides',guides.filter(g=>ids.includes(g.id)))}
+function toggleSave(id){let ids=getSaved();ids=ids.includes(id)?ids.filter(x=>x!==id):[...ids,id];localStorage.setItem('itvault_saved',JSON.stringify(ids));openGuide(id)}
+function openGuide(id){const g=guides.find(x=>x.id===id);if(!g)return;previousView=document.querySelector('.view.active')?.id||'home';const saved=getSaved().includes(id);document.getElementById('detailContent').innerHTML=`<div class="eyebrow">${g.topic.toUpperCase()} • ${g.time.toUpperCase()}</div><h1 class="page-title">${g.title}</h1><p class="sub">${g.desc}</p><button class="save" onclick="toggleSave('${g.id}')">${saved?'★ Saved — remove':'☆ Save guide'}</button><div class="detail"><h3>Step-by-step guide</h3><ol>${g.steps.map(s=>'<li>'+s+'</li>').join('')}</ol><div class="note"><strong>IT Vault tip:</strong> ${g.tip}</div><p style="color:var(--muted);font-size:12px;margin-top:18px">These are general first steps. Menu names may differ by device. Never share passwords or verification codes.</p></div>`;showView('detail')}
+
+// Vault AI sends requests to a Netlify Function; the secret API key stays server-side.
+const vaultAiHistory = [];
+const aiForm = document.getElementById('aiForm');
+if (aiForm) {
+  aiForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const input = document.getElementById('aiQuestion');
+    const send = document.getElementById('aiSend');
+    const messages = document.getElementById('aiMessages');
+    const status = document.getElementById('aiStatus');
+    const question = input.value.trim();
+    if (!question) return;
+    const addMessage = (role, content) => {
+      const box = document.createElement('div');
+      box.style.cssText = 'border:1px solid #18375e;border-radius:14px;padding:12px;background:' + (role === 'user' ? '#102344' : '#0b1930') + ';line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere';
+      const label = document.createElement('strong');
+      label.textContent = role === 'user' ? 'You: ' : 'Vault AI: ';
+      box.appendChild(label);
+      box.appendChild(document.createTextNode(content));
+      messages.appendChild(box);
+      messages.scrollTop = messages.scrollHeight;
+    };
+    addMessage('user', question);
+    vaultAiHistory.push({role:'user', content:question});
+    input.value = '';
+    send.disabled = true;
+    send.textContent = 'Thinking…';
+    status.textContent = 'Vault AI is preparing an answer…';
+    try {
+      const response = await fetch('/.netlify/functions/vault-ai', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({messages: vaultAiHistory.slice(-10)})
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || 'Vault AI could not answer right now.');
+      const answer = String(data.answer || '').slice(0, 8000);
+      if (!answer) throw new Error('Vault AI returned an empty answer. Please try again.');
+      vaultAiHistory.push({role:'assistant', content:answer});
+      addMessage('assistant', answer);
+      status.textContent = 'Connected to Vault AI. Ask another technology question whenever you are ready.';
+    } catch (err) {
+      addMessage('assistant', err.message || 'Could not connect. Please try again later.');
+      status.textContent = 'If this is the first deployment, check the Netlify function and environment variable settings.';
+    } finally {
+      send.disabled = false;
+      send.textContent = 'Ask Vault AI →';
+      input.focus();
+    }
+  });
+}
+
+renderAll();
+
+// Register the offline cache service worker when hosted on HTTPS or localhost.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err => {
+      console.log('Offline support could not be enabled yet:', err);
+    });
+  });
+}
+</script>
+</body>
+</html>
